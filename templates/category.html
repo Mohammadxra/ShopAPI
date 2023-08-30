@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>.card {
+    box-shadow: 0 4px 8px black;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    display: inline-block;
+  }
+  
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: green;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .card button:hover {
+    opacity: 0.7;
+  }</style>
+<body>
+    {% for product in products %}
+    <div class="card">
+        <img src="{{ url_for('static', path='pic'~ product._id ~'.png') }}"width="350px" height="280px" alt="image not loaded" style="width:100%">
+        <h1>{{product.name}}</h1>
+        <p class="price">{{product.price}}</p>
+        <p>{{product.detail}}</p>
+        <p><button>Add to Cart</button></p>
+      </div> 
+      {% endfor %}
+</body>
+</html>
